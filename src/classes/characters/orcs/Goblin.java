@@ -13,7 +13,7 @@ public class Goblin extends AbstractCharacter implements Warrior {
     }
 
     @Override
-    public int goDamage() {
+    public double goDamage() {
         System.out.print(getClassName());
         return attackWithWeapons();
     }

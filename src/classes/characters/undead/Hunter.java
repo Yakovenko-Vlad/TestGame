@@ -18,7 +18,7 @@ public class Hunter extends AbstractCharacter implements Archer{
     }
 
     @Override
-    public int goDamage() {
+    public double goDamage() {
         System.out.print(getClassName());
         if((rand.nextInt(2)+1)==1)
             return attack();

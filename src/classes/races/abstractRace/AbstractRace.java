@@ -4,41 +4,52 @@ import classes.characters.AbstractCharacter;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Vlad Yakovenko on 09.07.2017.
  */
 public abstract class AbstractRace {
-    protected ArrayList<AbstractCharacter> squad = new ArrayList<>(7);
-    protected ArrayList<AbstractCharacter> privileged = new ArrayList<>();
+    protected ArrayList<AbstractCharacter> squad = new ArrayList<>(8);
+    private Random rand = new Random();
+    private String lessDamage;
+    private String privilegChar;
 
     protected abstract void add();
 
     public ArrayList<AbstractCharacter> getSquad() {
         Collections.shuffle(squad);
-        /*for(int i = 0; i < squad.size(); i++){
-            if(squad.get(i).getHitPoints()<=0) {
-                System.out.println(squad.get(i).getClassName() + " dead");
-                squad.remove(i);
-                continue;
-            }
-            else */return squad;
+        return squad;
     }
 
-    public List getPrivileged() {
-        Collections.shuffle(privileged);
-        return privileged;
+    public void addToLessDamage(AbstractCharacter character) {
+        lessDamage = character.toString();
     }
 
-    public void removalOfImprovement(int index) {
-        squad.add(privileged.get(index));
-        privileged.remove(index);
+    public String getLessDamageCharacter() {
+        return lessDamage;
     }
 
-    public void improve(int index) {
-        privileged.add(squad.get(index));
-        squad.remove(index);
+    public void removLessDamageCharacter() {
+        lessDamage = null;
+    }
+
+    public String getPrivileged() {
+        return privilegChar;
+    }
+
+    public void removalOfImprovement() {
+        privilegChar = null;
+    }
+
+    public void improve(AbstractCharacter character) {
+        while (true) {
+            int i = rand.nextInt(squad.size()) + 0;
+            if (squad.get(i).equals(character) == false) {
+                privilegChar = squad.get(i).toString();
+                return;
+            } else continue;
+        }
     }
 
     public int size() {
