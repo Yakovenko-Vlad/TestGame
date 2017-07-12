@@ -5,12 +5,15 @@ import classes.characters.undead.Necromancer;
 import classes.characters.undead.Zombie;
 import classes.races.abstractRace.AbstractRace;
 
+import java.util.Collections;
+
 /**
  * Created by Vlad Yakovenko on 09.07.2017.
  */
 public class Undead extends AbstractRace {
     public Undead() {
         this.add();
+        Collections.shuffle(squad);
     }
 
     @Override

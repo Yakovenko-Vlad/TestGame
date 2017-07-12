@@ -1,5 +1,6 @@
 package classes.characters;
 
+import java.io.*;
 import java.util.Random;
 
 /**
@@ -15,7 +16,9 @@ public abstract class AbstractCharacter {
     }
 
     protected void showDamage(double damage) {
-        System.out.println(" inflicted " + damage + "hp damage to " + this.getClassName());
+        String text = " inflicted " + damage + "hp damage to " + this.getClassName();
+        System.out.println(text);
+        writeFile(text, 1);
     }
 
     public double getHitPoints() {
@@ -29,4 +32,19 @@ public abstract class AbstractCharacter {
     }
 
     public abstract double goDamage();
+
+    public void writeFile(String text, int typePrint) {
+        try {
+            PrintStream out = new PrintStream(
+                    new BufferedOutputStream(
+                            new FileOutputStream("BattleBetweenEnemyRaces.txt", true)));
+            if (typePrint == 1)
+                out.println(text);
+            else
+                out.print(text);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

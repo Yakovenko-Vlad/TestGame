@@ -12,13 +12,12 @@ import java.util.Random;
 public abstract class AbstractRace {
     protected ArrayList<AbstractCharacter> squad = new ArrayList<>(8);
     private Random rand = new Random();
-    private String lessDamage;
-    private String privilegChar;
+    private String lessDamage = null;
+    private String privilegChar = null;
 
     protected abstract void add();
 
     public ArrayList<AbstractCharacter> getSquad() {
-        Collections.shuffle(squad);
         return squad;
     }
 

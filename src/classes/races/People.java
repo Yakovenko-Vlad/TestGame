@@ -1,6 +1,8 @@
 package classes.races;
 
 import classes.characters.AbstractCharacter;
+
+import java.util.Collections;
 import java.util.List;
 
 import classes.characters.people.Crossbowman;
@@ -15,6 +17,7 @@ public class People extends AbstractRace {
 
     public People() {
         this.add();
+        Collections.shuffle(squad);
     }
 
     protected void add() {

@@ -14,6 +14,7 @@ public class ManWarrior extends AbstractCharacter implements Warrior {
     @Override
     public double goDamage() {
         System.out.print(getClassName());
+        writeFile(getClassName(), 2);
         return attackWithWeapons();
     }
 }

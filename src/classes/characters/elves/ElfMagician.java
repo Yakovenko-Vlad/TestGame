@@ -20,6 +20,7 @@ public class ElfMagician extends AbstractCharacter implements Magician {
     @Override
     public double goDamage() {
         System.out.print(getClassName());
+        writeFile(getClassName(), 2);
         if((rand.nextInt(2)+1)==1)
             return improveCharacter();
         else

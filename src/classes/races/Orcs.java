@@ -5,12 +5,15 @@ import classes.characters.orcs.OrcArcher;
 import classes.characters.orcs.Shaman;
 import classes.races.abstractRace.AbstractRace;
 
+import java.util.Collections;
+
 /**
  * Created by Vlad Yakovenko on 09.07.2017.
  */
 public class Orcs extends AbstractRace {
     public Orcs() {
         this.add();
+        Collections.shuffle(squad);
     }
 
     @Override

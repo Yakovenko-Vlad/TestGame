@@ -5,12 +5,15 @@ import classes.characters.elves.ElfMagician;
 import classes.characters.elves.ElfWarrior;
 import classes.races.abstractRace.AbstractRace;
 
+import java.util.Collections;
+
 /**
  * Created by Vlad Yakovenko on 09.07.2017.
  */
 public class Elves extends AbstractRace {
     public Elves() {
         this.add();
+        Collections.shuffle(squad);
     }
 
     @Override
