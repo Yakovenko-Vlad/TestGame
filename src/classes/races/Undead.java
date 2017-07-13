@@ -8,14 +8,18 @@ import classes.races.abstractRace.AbstractRace;
 import java.util.Collections;
 
 /**
- * Created by Vlad Yakovenko on 09.07.2017.
+ * Created by Vlad Yakovenko.
+ * Description of the properties of the rece Undead
  */
 public class Undead extends AbstractRace {
     public Undead() {
         this.add();
-        Collections.shuffle(squad);
+        Collections.shuffle(squad); // Mixing array
     }
 
+    /**
+     * The creation of a squad consisting of a magician, 3 archers and 4 wariors
+     */
     @Override
     protected void add() {
         squad.add(new Necromancer());
@@ -25,6 +29,5 @@ public class Undead extends AbstractRace {
         for (int i = 0; i < 4; i++) {
             squad.add(new Zombie());
         }
-
     }
 }

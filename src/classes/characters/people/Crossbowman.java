@@ -3,19 +3,35 @@ package classes.characters.people;
 import interfaces.Archer;
 import classes.characters.AbstractCharacter;
 /**
- * Created by Vlad Yakovenko on 09.07.2017.
+ * Created by Vlad Yakovenko.
+ * Description of the properties of the character crossbowman
  */
 public class Crossbowman extends AbstractCharacter implements Archer{
+    /**
+     * Shot with a Archer
+     *
+     * @return hit points
+     */
     @Override
     public int archery() {
         return 5;
     }
 
+    /**
+     * Attack the enemy
+     *
+     * @return hit points
+     */
     @Override
     public int attack() {
         return 3;
     }
 
+    /**
+     * Damage inflicted on the enemy
+     *
+     * @return hit points
+     */
     @Override
     public double goDamage() {
         System.out.print(getClassName());

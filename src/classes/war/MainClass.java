@@ -10,10 +10,15 @@ import java.io.*;
 import java.util.Random;
 
 /**
- * Created by Vlad Yakovenko on 08.07.2017.
+ * Created by Vlad Yakovenko.
+ * Main class. Random creation of two warring races and random
+ * determination of the beginning of the battle
  */
 public class MainClass {
-    public static void main(String[] args) throws InterruptedException {
+    /**
+     * Main function - start point of the program
+     */
+    public static void main(String[] args) {
         MainClass mainClass = new MainClass();
         Random rand = new Random();
         int start = rand.nextInt(11) + 10;
@@ -22,6 +27,7 @@ public class MainClass {
         AbstractRace secondRace;
         File file = new File("BattleBetweenEnemyRaces.txt");
         file.delete();
+        // Random creation of two warring races
         if ((rand.nextInt(11) + 10) % 2 == 0) {
             firstRace = new People();
         } else {
@@ -35,7 +41,7 @@ public class MainClass {
         String text = firstRace.getClassName() + " against " + secondRace.getClassName();
         System.out.println(text);
         mainClass.writeFile(text);
-        while (firstRace.getSquad().size() > 0 && secondRace.getSquad().size() > 0) {
+        while (firstRace.getSquad().size() > 0 && secondRace.getSquad().size() > 0) { //The cycle in which the battle takes place
             if (start % 2 == 0) {
                 fight.battle(firstRace, secondRace);
                 if (secondRace.getSquad().size() == 0) break;
@@ -48,7 +54,7 @@ public class MainClass {
                 if (secondRace.getSquad().size() == 0) break;
             }
         }
-        if (firstRace.size() > 0) {
+        if (firstRace.size() > 0) { // Determination of the winner
             text = firstRace.getClassName() + " win " + firstRace.size() + ":" + secondRace.size();
             System.out.println(text);
             mainClass.writeFile(text);
@@ -59,6 +65,11 @@ public class MainClass {
         }
     }
 
+    /**
+     * Record the progress of the battle at the end of the file
+     *
+     * @param text text that needs to be written to a file
+     */
     public void writeFile(String text) {
         try {
             PrintStream out = new PrintStream(

@@ -1,8 +1,14 @@
 package interfaces;
 
 /**
- * Created by Vlad Yakovenko on 09.07.2017.
+ * Created by Vlad Yakovenko.
+ * Declared methods for warrior
  */
 public interface Warrior {
+    /**
+     * Attack an enemy with weapons
+     *
+     * @return hit points
+     */
     int attackWithWeapons();
 }

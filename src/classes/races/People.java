@@ -11,15 +11,19 @@ import classes.characters.people.ManWarrior;
 import classes.races.abstractRace.AbstractRace;
 
 /**
- * Created by Vlad Yakovenko on 08.07.2017.
+ * Created by Vlad Yakovenko.
+ * Description of the properties of the rece People
  */
 public class People extends AbstractRace {
 
     public People() {
         this.add();
-        Collections.shuffle(squad);
+        Collections.shuffle(squad); // Mixing array
     }
 
+    /**
+     * The creation of a squad consisting of a magician, 3 archers and 4 wariors
+     */
     protected void add() {
         squad.add(new Mage());
         for (int i = 0; i < 3; i++) {
