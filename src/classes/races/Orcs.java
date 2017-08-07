@@ -29,6 +29,5 @@ public class Orcs extends AbstractRace {
         for (int i = 0; i < 4; i++) {
             squad.add(new Goblin());
         }
-
     }
 }
